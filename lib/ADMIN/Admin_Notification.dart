@@ -27,6 +27,7 @@ class _Admin_notificState extends State<Admin_notific> {
         },
         itemCount: 6,
       ),
+
     );
   }
 }

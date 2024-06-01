@@ -1,5 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:vehicle_repair/ADMIN/tab_user.dart';
+import 'package:vehicle_repair/USER/User_Mechlist.dart';
+import 'package:vehicle_repair/USER/User_Notification.dart';
+
+import 'User_requestmechlist.dart';
 
 class User_requestmeclist extends StatefulWidget {
   const User_requestmeclist({super.key});
@@ -21,14 +26,37 @@ class _User_requestmeclistState extends State<User_requestmeclist> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                ClipOval(
+                  child: Image.asset(
+                    "assets/Ellipse2.jpg",
+                    height: 70,
+                    width: 70,
+                    fit: BoxFit.fitWidth,
+                  ),
+                ),
                 SizedBox(
                   height: 150,
                   width: 20,
                 ),
-                ClipOval(
 
-                  child: Image.asset("assets/Ellipse2.jpg",height: 70,width: 70,fit: BoxFit.cover,),
-                )
+                SizedBox(width: MediaQuery.of(context).size.width*.5,),
+                InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>User_notification()));
+                    },
+                    child: Container(
+                      height: 40,
+                      width: 80,
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 0, 150, 178),
+                          borderRadius: BorderRadius.circular(5)),
+                      child: Center(child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.notifications,color: Colors.white,)
+                        ],
+                      )),
+                    ))
               ],
             ),
             Container(
@@ -46,54 +74,12 @@ class _User_requestmeclistState extends State<User_requestmeclist> {
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   labelColor: Color.fromARGB(255, 255, 255, 255),
                   unselectedLabelColor: Color.fromARGB(255, 0, 150, 178),
-                  tabs: [Text('User'), Text('Mechanic')]),
+                  tabs: [Text('Mechanic'), Text('Request')]),
             ),
             Expanded(
               child: TabBarView(children: [
-                ListView.builder(
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: EdgeInsets.all(20),
-                      height: 100,
-                      width: 200,
-                      color: Colors.white,
-                      child:  Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            width: 20,
-                          ),
-                          CircleAvatar(
-                            child: Image.asset("assets/Rectangle 13.png"),
-                            radius: 30,
-                          ),
-                          SizedBox(
-                            width: 30,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Name',
-                                style: TextStyle(color: Colors.black),
-                              ),
-
-                              Text(
-                                ' Mobile Number',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                              Text(
-                                ' Service',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                    );
-                  },
-                  itemCount: 6,
-                )
+                Mech_userlist(),
+                Tabusers(),
               ]),
             )
           ],
@@ -102,5 +88,3 @@ class _User_requestmeclistState extends State<User_requestmeclist> {
     );
   }
 }
-
-

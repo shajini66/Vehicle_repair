@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:vehicle_repair/ADMIN/tab_user.dart';
+
+import 'Admin_homemec.dart';
 
 class Admin_homeU extends StatefulWidget {
   const Admin_homeU({super.key});
@@ -18,7 +21,7 @@ class _Admin_homeUState extends State<Admin_homeU> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-             Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 SizedBox(
@@ -26,9 +29,32 @@ class _Admin_homeUState extends State<Admin_homeU> {
                   width: 20,
                 ),
                 ClipOval(
-
-                  child: Image.asset("assets/Rectangle 13.png",height: 70,width: 70,fit: BoxFit.cover,),
-                )
+                  child: Image.asset(
+                    "assets/Ellipse2.jpg",
+                    height: 70,
+                    width: 70,
+                    fit: BoxFit.fitWidth,
+                  ),
+                ),
+                SizedBox(width: MediaQuery.of(context).size.width*.5,),
+                InkWell(
+                  onTap: () {
+                    // Navigator.push(context, MaterialPageRoute(builder: (context)=>))
+                  },
+                    child: Container(
+                  height: 40,
+                  width: 80,
+                  decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 0, 150, 178),
+                      borderRadius: BorderRadius.circular(5)),
+                  child: Center(child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Logout",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                      Icon(Icons.logout,color: Colors.white,)
+                    ],
+                  )),
+                ))
               ],
             ),
             Container(
@@ -50,53 +76,8 @@ class _Admin_homeUState extends State<Admin_homeU> {
             ),
             Expanded(
               child: TabBarView(children: [
-                ListView.builder(
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: EdgeInsets.all(20),
-                      height: 100,
-                      width: 200,
-                      color: Colors.white,
-                      child:  Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            width: 20,
-                          ),
-                          CircleAvatar(
-                            child: Image.asset("assets/Rectangle 13.png"),
-                            radius: 30,
-                          ),
-                          SizedBox(
-                            width: 30,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Name',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                              Text(
-                                ' Location',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                              Text(
-                                ' Mobile Number',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                              Text(
-                                ' Email',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                    );
-                  },
-                  itemCount: 6,
-                )
+                TabUser(),
+                Admin_homeM(),
               ]),
             )
           ],

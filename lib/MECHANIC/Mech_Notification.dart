@@ -11,35 +11,32 @@ class Mech_notific extends StatefulWidget {
 class _Mech_notificState extends State<Mech_notific> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16.0),
-      decoration: BoxDecoration(
-        color: Colors.grey.shade200,
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child:
-      Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            child: Text("add notific",style: const TextStyle(fontSize: 16.0)),
+return
+  Container(
+    height: 30,
+    width: 20,
+    alignment: Alignment.topRight,
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          DateTime.now().toString().substring(11, 16),
+          style: TextStyle(
+            fontSize: 12, // Adjust font size as needed
           ),
-          const SizedBox(width: 16.0),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              // Text(DateFormat('HH:mm').format(DateTime.now()),
-              //     style: const TextStyle(fontSize: 12.0, color: Colors.grey)),
-              // Text(DateFormat('EEEE, MMMM d, yyyy').format(DateTime.now()),
-              //     style: const TextStyle(fontSize: 12.0, color: Colors.grey)),
-            ],
+        ),
+        Text(
+          DateTime.now().toString().substring(0, 10),
+          style: TextStyle(
+            fontSize: 10, // Adjust font size as needed
           ),
-        ],
-      ),
-    );
+        ),
+      ],
+    ),
 
+
+    );
   }
 }
-
 
 

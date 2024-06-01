@@ -1,22 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:vehicle_repair/ADMIN/Admin_Notification.dart';
-import 'package:vehicle_repair/ADMIN/Admin_home%20user.dart';
-import 'package:vehicle_repair/ADMIN/Admin_paynment.dart';
+import 'package:vehicle_repair/MECHANIC/Mech_Rating.dart';
+import 'package:vehicle_repair/MECHANIC/Mech_Service.dart';
+import 'package:vehicle_repair/MECHANIC/Mech_request_home.dart';
+import 'package:vehicle_repair/MECHANIC/Mech_service_home.dart';
+import 'package:vehicle_repair/MECHANIC/tab_mech.dart';
 
-class Admin_bottom extends StatefulWidget {
-  const Admin_bottom({super.key});
+class Mech_bottm extends StatefulWidget {
+  const Mech_bottm({super.key});
 
   @override
-  State<Admin_bottom> createState() => _Admin_bottomState();
+  State<Mech_bottm> createState() => _Mech_bottmState();
 }
 
-class _Admin_bottomState extends State<Admin_bottom> {
+class _Mech_bottmState extends State<Mech_bottm> {
   int currentindex = 0;
   final pages = [
-    const Admin_homeU(),
-    const Admin_pay(),
-    const Admin_notific(),
+    const Mech_serviceH(),
+    const Mech_service(),
+    const Mech_rate(),
 
   ];
   @override
@@ -36,19 +38,19 @@ class _Admin_bottomState extends State<Admin_bottom> {
                 CupertinoIcons.home,
                 color: Colors.black,
               ),
-              label: 'Home'),
+              label: 'Request'),
           BottomNavigationBarItem(
               icon: Icon(
-                Icons.payments,
+                Icons.home_repair_service,
                 color: Colors.black,
               ),
-              label: 'Payment'),
+              label: 'Service'),
           BottomNavigationBarItem(
               icon: Icon(
-                Icons.notifications,
+                Icons.generating_tokens_outlined,
                 color: Colors.black,
               ),
-              label: 'Notification'),
+              label: 'Rating'),
         ],
         selectedItemColor: Color.fromRGBO(191, 68, 116, 1),
 
@@ -59,5 +61,6 @@ class _Admin_bottomState extends State<Admin_bottom> {
     );
   }
 }
+
 
 

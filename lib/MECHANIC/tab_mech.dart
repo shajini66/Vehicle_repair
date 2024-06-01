@@ -1,23 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:vehicle_repair/MECHANIC/Mech_Profile.dart';
 import 'package:vehicle_repair/MECHANIC/Mech_ServiceAR.dart';
 
-class Mech_requestH extends StatefulWidget {
-  const Mech_requestH({super.key});
+class Mech_tab extends StatefulWidget {
+  const Mech_tab({super.key});
 
   @override
-  State<Mech_requestH> createState() => _Mech_requestHState();
+  State<Mech_tab> createState() => _Mech_tabState();
 }
 
-class _Mech_requestHState extends State<Mech_requestH> {
+class _Mech_tabState extends State<Mech_tab> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blue.shade100,
       body: ListView.builder(
-        itemCount: 2,
+        itemCount: 3,
         itemBuilder: (context, index) {
           return Card(
             child: ListTile(
@@ -29,15 +27,15 @@ class _Mech_requestHState extends State<Mech_requestH> {
                 radius: 30,
               ),
               subtitle:Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    'fuel leaking',
+                    'Fuel leaking',
                     style: TextStyle(color: Colors.black),
                   ),
 
                   Text(
-                    ' date',
+                    ' Date',
                     style: TextStyle(color: Colors.black),
                   ),
                   Text(
@@ -48,25 +46,14 @@ class _Mech_requestHState extends State<Mech_requestH> {
                     ' Place',
                     style: TextStyle(color: Colors.black),
                   ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Padding(
-
-                    padding: const EdgeInsets.only(top: 30),
-                    child: ElevatedButton(
-                        onPressed: () {}, child: Text("Payment pending"))),
-                  ],
+                ],
               ),
-              ],
             ),
-          ));
+          );
         },
-      ));
-
-
+      ),
+    );
   }
-
 }
 
 

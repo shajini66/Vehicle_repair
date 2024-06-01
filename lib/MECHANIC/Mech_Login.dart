@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:vehicle_repair/MECHANIC/Mech_bottom.dart';
+
+import 'Mech_Signup.dart';
 
 class Mech_login extends StatefulWidget {
   const Mech_login({super.key});
@@ -15,86 +18,95 @@ class _Mech_loginState extends State<Mech_login> {
     return Scaffold(
 
         body: Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: BoxDecoration(
-              color:  Colors.blue.shade100
-          ),
-    child: SingleChildScrollView(
-          child:
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal:30),
+            width: double.infinity,
+            height: double.infinity,
+            decoration: BoxDecoration(
+                color:  Colors.blue.shade100
+            ),
+            child: SingleChildScrollView(
+              child:
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal:30),
 
-            child:
-            Column(
-              children: [
-                SizedBox(
-                  height: 80,
-                ),
-                Image.asset("assets/tow 1.png"),
-                SizedBox(
-                  height: 30,
-                ),
-
-                Text('LOGIN'),
-                SizedBox(
-                  height: 80,
-                ),
-
-                TextFormField(
-
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(), labelText: "User name"),
-                ),
-                SizedBox(
-                  height: 20,
-                  width: 10,
-                ),
-                TextFormField(
-
-                  obscureText: true,
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(), labelText: "Password"),
-                ),
-                SizedBox(
-                  height: 50,
-
-                ),
-
+                child:
                 Column(
-                  crossAxisAlignment:CrossAxisAlignment.end ,
-
                   children: [
-                    Text(textAlign: TextAlign.end,
-                      'forget password',
+                    SizedBox(
+                      height: 80,
+                    ),
+                    Image.asset("assets/tow 1.png"),
+                    SizedBox(
+                      height: 30,
+                    ),
+
+                    Text('LOGIN'),
+                    SizedBox(
+                      height: 80,
+                    ),
+
+                    TextFormField(
+
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(), labelText: "User name"),
                     ),
                     SizedBox(
-                      height:20,
-                      width: 15,
+                      height: 20,
+                      width: 10,
                     ),
-                ElevatedButton(
-                  onPressed: () {},
+                    TextFormField(
 
-                  child: Text('LOGIN',style: TextStyle(color: Colors.white),),
+                      obscureText: true,
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(), labelText: "Password"),
+                    ),
+                    SizedBox(
+                      height: 50,
 
-                  style: ElevatedButton.styleFrom(shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)) ,backgroundColor: Colors.blue),
-                )
+                    ),
 
-                ],
+                    Column(
+                      crossAxisAlignment:CrossAxisAlignment.end ,
 
+                      children: [
+                        Text(textAlign: TextAlign.end,
+                          'forget password',
+                        ),
+                        SizedBox(
+                          height:20,
+                          width: 15,
+                        ),
+                        ElevatedButton(
+                          onPressed: () { Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => Mech_bottm()));
+    },
+
+                          child: Text('LOGIN',style: TextStyle(color: Colors.white),),
+
+                          style: ElevatedButton.styleFrom(shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)) ,backgroundColor: Colors.blue),
+                        )
+
+                      ],
+
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text("Do you have account?Sign Up")
+                  ],
                 ),
-SizedBox(
-  height: 20,
-),
-Text("Do you have account?Sign Up")
-              ],
-            ),
-          ),
+              ),
 
 
-        )));
+            )));
   }
 }
+
+
+
+
+
 
 
 

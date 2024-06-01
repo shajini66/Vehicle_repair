@@ -13,12 +13,10 @@ class _Admin_payState extends State<Admin_pay> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Align(
-          alignment: Alignment.centerLeft,
-          child: ClipOval(
-            child: Image.asset("assets/Ellipse2.jpg",height: 40,width: 40,fit: BoxFit.cover,),
-          ),
+      appBar: AppBar(toolbarHeight: 80,
+        automaticallyImplyLeading: false,
+        title: ClipOval(
+          child: Image.asset("assets/Ellipse2.jpg",height: 60,width:60,fit: BoxFit.cover,),
         ),
       ),
       backgroundColor: Colors.blue.shade100,

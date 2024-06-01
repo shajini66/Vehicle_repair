@@ -12,13 +12,6 @@ class _Mech_userlistState extends State<Mech_userlist> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          ClipOval(
-            child: Image.asset("assets/Ellipse2.jpg",height: 40,width: 40,fit: BoxFit.cover,),
-          ),
-        ],
-      ),
 
       backgroundColor: Colors.blue.shade100,
 

@@ -1,15 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:vehicle_repair/ADMIN/Admin_Mechanic.dart';
+import 'package:vehicle_repair/ADMIN/Admin_User.dart';
 
-class Admin_homeM extends StatefulWidget {
-  const Admin_homeM({super.key});
+class TabUser extends StatefulWidget {
+  const TabUser({super.key});
 
   @override
-  State<Admin_homeM> createState() => _Admin_homeMState();
+  State<TabUser> createState() => _TabUserState();
 }
 
-class _Admin_homeMState extends State<Admin_homeM> {
+class _TabUserState extends State<TabUser> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,12 +19,12 @@ class _Admin_homeMState extends State<Admin_homeM> {
           return Card(
             child: ListTile(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>Admin_mechanic()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Admin_user()));
               },
-              leading: CircleAvatar(
-                child: Image.asset("assets/Rectangle 13.png"),
-                radius: 30,
-              ),
+                leading: CircleAvatar(
+                  child: Image.asset("assets/Rectangle 13.png"),
+                  radius: 30,
+                ),
               subtitle:Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -39,7 +38,11 @@ class _Admin_homeMState extends State<Admin_homeM> {
                     style: TextStyle(color: Colors.black),
                   ),
                   Text(
-                    ' Service',
+                    ' Location',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  Text(
+                    ' Email',
                     style: TextStyle(color: Colors.black),
                   ),
                 ],

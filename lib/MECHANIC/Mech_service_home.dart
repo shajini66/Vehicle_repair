@@ -1,5 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:vehicle_repair/MECHANIC/Mech_Edit_profile.dart';
+import 'package:vehicle_repair/MECHANIC/Mech_Notification.dart';
+import 'package:vehicle_repair/MECHANIC/tab_mech.dart';
+
+import 'Mech_request_home.dart';
 
 class Mech_serviceH extends StatefulWidget {
   const Mech_serviceH({super.key});
@@ -18,92 +23,62 @@ class _Mech_serviceHState extends State<Mech_serviceH> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-             Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: 200,
+                  height: 150,
                   width: 20,
                 ),
                 ClipOval(
-
-                  child: Image.asset("assets/Rectangle 13.png",height: 70,width: 70,fit: BoxFit.cover,),
+                  child: Image.asset(
+                    "assets/Ellipse 9.png",
+                    height: 70,
+                    width: 70,
+                    fit: BoxFit.fitWidth,
+                  ),
                 ),
-                Spacer(),
-                Padding(
-                  padding: const EdgeInsets.only(right: 18,top: 0),
-                  child:Image.asset("assets/notification 1.png"),
-                ),
+                SizedBox(width: MediaQuery.of(context).size.width*.5,),
+                InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Mech_notific()));
+                    },
+                    child: Container(
+                      height: 40,
+                      width: 80,
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 0, 150, 178),
+                          borderRadius: BorderRadius.circular(5)),
+                      child: Center(child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.notifications,color: Colors.white,)
+                        ],
+                      )),
+                    ))
               ],
             ),
             Container(
-              height: 60,
+              height: 40,
               margin: const EdgeInsets.symmetric(horizontal: 20),
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(10)),
-                color: Color.fromARGB(244, 45, 87, 136),
+                color: Color.fromARGB(255, 255, 255, 255),
               ),
               child: const TabBar(
                   indicatorSize: TabBarIndicatorSize.tab,
                   dividerColor: Color.fromARGB(0, 255, 255, 255),
                   indicator: BoxDecoration(
-                      color: Color.fromARGB(255, 255, 255, 255),
+                      color: Color.fromARGB(255, 0, 150, 178),
                       borderRadius: BorderRadius.all(Radius.circular(10))),
-                  labelColor: Color.fromARGB(244, 45, 87, 136),
-                  unselectedLabelColor: Color.fromARGB(255, 255, 255, 255),
-                  tabs: [Text('Requests'), Text('Accepted')]),
+                  labelColor: Color.fromARGB(255, 255, 255, 255),
+                  unselectedLabelColor: Color.fromARGB(255, 0, 150, 178),
+                  tabs: [Text('Requestes'), Text('Accepted')]),
             ),
             Expanded(
               child: TabBarView(children: [
-                ListView.builder(
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: EdgeInsets.all(20),
-                      height: 150,
-                      width: 200,
-                      color: Colors.white,
-                      child:  Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            width: 20,
-                          ),
-                          CircleAvatar(
-                              child: Image.asset("assets/Ellipse 11.png"),
-                            radius: 30,
-                          ),
-
-                          SizedBox(
-                            width: 30,
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Fuel leaking',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                              Text(
-                                ' Date',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                              Text(
-                                '  Time',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                              Text(
-                                ' Place',
-                                style: TextStyle(color: Colors.black),
-                              ),
-
-
-
-                        ],
-                      ),
-                    ]));
-                  },
-                  itemCount: 6,
-                )
+                Mech_tab(),
+                Mech_requestH(),
               ]),
             )
           ],
@@ -112,5 +87,4 @@ class _Mech_serviceHState extends State<Mech_serviceH> {
     );
   }
 }
-
 
