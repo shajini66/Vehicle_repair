@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:vehicle_repair/ADMIN/tab_user.dart';
 
+import '../landing_page.dart';
 import 'Admin_homemec.dart';
 
 class Admin_homeU extends StatefulWidget {
@@ -39,7 +40,7 @@ class _Admin_homeUState extends State<Admin_homeU> {
                 SizedBox(width: MediaQuery.of(context).size.width*.5,),
                 InkWell(
                   onTap: () {
-                    // Navigator.push(context, MaterialPageRoute(builder: (context)=>))
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>LandingPage()));
                   },
                     child: Container(
                   height: 40,

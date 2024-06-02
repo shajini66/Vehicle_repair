@@ -4,6 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'package:vehicle_repair/MECHANIC/Mech_Profile.dart';
 import 'package:vehicle_repair/MECHANIC/Mech_ServiceAR.dart';
 
+import 'Mech_status.dart';
+
 class Mech_requestH extends StatefulWidget {
   const Mech_requestH({super.key});
 
@@ -55,7 +57,9 @@ class _Mech_requestHState extends State<Mech_requestH> {
 
                     padding: const EdgeInsets.only(top: 30),
                     child: ElevatedButton(
-                        onPressed: () {}, child: Text("Payment pending"))),
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Mech_status()));
+                        }, child: Text("Payment pending"))),
                   ],
               ),
               ],

@@ -12,30 +12,35 @@ class _Mech_notificState extends State<Mech_notific> {
   @override
   Widget build(BuildContext context) {
 return
-  Container(
-    height: 30,
-    width: 20,
-    alignment: Alignment.topRight,
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          DateTime.now().toString().substring(11, 16),
-          style: TextStyle(
-            fontSize: 12, // Adjust font size as needed
-          ),
+ Scaffold(
+   appBar: AppBar(title: Text("Notification"),toolbarHeight: 70,backgroundColor: Colors.blue.shade100,),
+    body: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+      child: Container(
+        height: MediaQuery.of(context).size.height*.1,
+        width: MediaQuery.of(context).size.width*.6,
+        decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(10),boxShadow:[BoxShadow(color: Colors.grey,offset:Offset(0,2),spreadRadius: 2,blurRadius: 3 )],border: Border.all(color: Colors.grey)),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Text("Admin Notification"),
+                Spacer(),
+                Text("1:00pm"),
+              ],
+            ),
+            SizedBox( height: MediaQuery.of(context).size.height*.05,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text("06/12/2024")
+              ],
+            )
+          ],
         ),
-        Text(
-          DateTime.now().toString().substring(0, 10),
-          style: TextStyle(
-            fontSize: 10, // Adjust font size as needed
-          ),
-        ),
-      ],
+      ),
     ),
-
-
-    );
+ );
   }
 }
 

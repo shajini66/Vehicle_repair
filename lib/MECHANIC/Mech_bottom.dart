@@ -6,6 +6,8 @@ import 'package:vehicle_repair/MECHANIC/Mech_request_home.dart';
 import 'package:vehicle_repair/MECHANIC/Mech_service_home.dart';
 import 'package:vehicle_repair/MECHANIC/tab_mech.dart';
 
+import 'Mech_Notification.dart';
+
 class Mech_bottm extends StatefulWidget {
   const Mech_bottm({super.key});
 
@@ -17,6 +19,7 @@ class _Mech_bottmState extends State<Mech_bottm> {
   int currentindex = 0;
   final pages = [
     const Mech_serviceH(),
+    Mech_notific(),
     const Mech_service(),
     const Mech_rate(),
 
@@ -35,10 +38,16 @@ class _Mech_bottmState extends State<Mech_bottm> {
         items: [
           BottomNavigationBarItem(
               icon: Icon(
-                CupertinoIcons.home,
+               CupertinoIcons.person_3_fill,
                 color: Colors.black,
               ),
-              label: 'Request'),
+              label: 'Requests'),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.notifications,
+                color: Colors.black,
+              ),
+              label: 'Notification'),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.home_repair_service,

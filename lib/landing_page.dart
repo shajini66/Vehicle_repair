@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:vehicle_repair/ADMIN/Admin_login.dart';
 
+import 'MECHANIC/Mech_Login.dart';
+import 'USER/User_Log.dart';
+
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
 
@@ -39,38 +42,42 @@ class _LandingPageState extends State<LandingPage> {
                     SizedBox(
                       height: 40,
                     ),
-                    Container(
-                      height: 50,
-                      width: 250,
-                      decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.circular(5)),
-                      child: Center(
-                          child: Text(
-                        "Mechanic",
-                        style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
-                      )),
+                    InkWell(onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Mech_login()));},
+                      child: Container(
+                        height: 50,
+                        width: 250,
+                        decoration: BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.circular(5)),
+                        child: Center(
+                            child: Text(
+                          "Mechanic",
+                          style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        )),
+                      ),
                     ),
                     SizedBox(
                       height: 40,
                     ),
-                    Container(
-                      height: 50,
-                      width: 250,
-                      decoration: BoxDecoration(
-                          color: Colors.grey.shade300,
-                          borderRadius: BorderRadius.circular(5)),
-                      child: Center(
-                          child: Text(
-                        "User",
-                        style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black),
-                      )),
+                    InkWell(onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>User_login()));},
+                      child: Container(
+                        height: 50,
+                        width: 250,
+                        decoration: BoxDecoration(
+                            color: Colors.grey.shade300,
+                            borderRadius: BorderRadius.circular(5)),
+                        child: Center(
+                            child: Text(
+                          "User",
+                          style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black),
+                        )),
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(right: 10,top: 40),
@@ -88,21 +95,21 @@ class _LandingPageState extends State<LandingPage> {
                           )),
                     ),
                     SizedBox(height: 100,),
-                    Container(
-                      height: 50,
-                      width: 250,
-                      decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.circular(5)),
-                      child: Center(
-                          child: Text(
-                            "Continue",
-                            style: TextStyle(
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          )),
-                    ),
+                    // Container(
+                    //   height: 50,
+                    //   width: 250,
+                    //   decoration: BoxDecoration(
+                    //       color: Colors.blue,
+                    //       borderRadius: BorderRadius.circular(5)),
+                    //   child: Center(
+                    //       child: Text(
+                    //         "Continue",
+                    //         style: TextStyle(
+                    //             fontSize: 25,
+                    //             fontWeight: FontWeight.bold,
+                    //             color: Colors.white),
+                    //       )),
+                    // ),
                   ],
                 ),
               ),

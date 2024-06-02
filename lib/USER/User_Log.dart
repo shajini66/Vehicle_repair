@@ -65,9 +65,9 @@ class _User_loginState extends State<User_login> {
                       crossAxisAlignment:CrossAxisAlignment.end ,
 
                       children: [
-                        Text(textAlign: TextAlign.end,
-                          'forget password',
-                        ),
+                        // Text(textAlign: TextAlign.end,
+                        //   'forget password',
+                        // ),
                         SizedBox(
                           height:20,
                           width: 15,

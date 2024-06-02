@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'Mech_bottom.dart';
+import 'Mech_request_home.dart';
+
 class Mech_status extends StatefulWidget {
   const Mech_status({super.key});
 
@@ -77,7 +80,9 @@ class _Mech_statusState extends State<Mech_status> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Mech_bottm()));
+                  },
                   child: Text(
                     'Submit',
                     style: TextStyle(color: Colors.white),

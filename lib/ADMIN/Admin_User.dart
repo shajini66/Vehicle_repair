@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'Admin_bottom.dart';
+import 'Admin_home user.dart';
+
 class Admin_user extends StatefulWidget {
   const Admin_user({super.key});
 
@@ -73,7 +76,9 @@ class _Admin_userState extends State<Admin_user> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Admin_bottom()));
+                            },
                             child: Text("Accept"),
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue),

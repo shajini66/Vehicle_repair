@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "89347347721",
+    "firebase_url": "https://vehicle-79102-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "vehicle-79102",
+    "storage_bucket": "vehicle-79102.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:89347347721:android:3d383c16a05b37e0cd2fd8",
+        "android_client_info": {
+          "package_name": "com.example.vehicle_repair"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaJc48pP5kdECMdtzCj5ZH1qs5fyI-OBA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

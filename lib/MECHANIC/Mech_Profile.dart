@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'Mech_Edit_profile.dart';
+import 'Mech_bottom.dart';
+
 class Mech_profiles extends StatefulWidget {
   const Mech_profiles({super.key});
 
@@ -24,13 +27,21 @@ class _Mech_profilesState extends State<Mech_profiles> {
                     children: [
                       SizedBox(
                         height: 200,
-                        width: 20,
+
                       ),
-                      CircleAvatar(
-                        child: Image.asset("assets/Rectangle 13.png"),
-                        radius: 40,
+                      Center(
+                        child: CircleAvatar(
+                          child: Image.asset("assets/Rectangle 13.png"),
+                          radius: 40,
+                        ),
                       ),
-                      Text("Name"),
+
+                     Padding(
+                       padding: const EdgeInsets.only(left: 150,bottom: 90),
+                       child: IconButton(onPressed: (){
+                         Navigator.push(context, MaterialPageRoute(builder: (context)=>Mech_editProfile()));
+                       }, icon: Icon(Icons.edit)),
+                     )
                     ],
                   ),
                   TextFormField(
@@ -76,7 +87,9 @@ class _Mech_profilesState extends State<Mech_profiles> {
                     height: 30,
                   ),
 
-                  ElevatedButton(onPressed: () {}, child: Text("Submit"),
+                  ElevatedButton(onPressed: () {
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>Mech_bottm()));
+                  }, child: Text("Done"),
                     style: ElevatedButton.styleFrom(shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)) ,backgroundColor: Colors.blue),),
                   SizedBox(
                     height: 15,

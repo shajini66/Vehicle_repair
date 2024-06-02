@@ -68,9 +68,9 @@ class _Mech_loginState extends State<Mech_login> {
                       crossAxisAlignment:CrossAxisAlignment.end ,
 
                       children: [
-                        Text(textAlign: TextAlign.end,
-                          'forget password',
-                        ),
+                        // Text(textAlign: TextAlign.end,
+                        //   'forget password',
+                        // ),
                         SizedBox(
                           height:20,
                           width: 15,
@@ -93,7 +93,9 @@ class _Mech_loginState extends State<Mech_login> {
                     SizedBox(
                       height: 20,
                     ),
-                    Text("Do you have account?Sign Up")
+                    InkWell(
+                        onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Mech_signup()));},
+                        child: Text("Do you have account?Sign Up"))
                   ],
                 ),
               ),

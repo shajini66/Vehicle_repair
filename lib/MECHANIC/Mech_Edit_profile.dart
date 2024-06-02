@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'Mech_bottom.dart';
+
 class Mech_editProfile extends StatefulWidget {
   const Mech_editProfile({super.key});
 
@@ -83,7 +85,9 @@ class _Mech_editProfileState extends State<Mech_editProfile> {
                         height: 30,
                       ),
 
-                          ElevatedButton(onPressed: () {}, child: Text("Done"),
+                          ElevatedButton(onPressed: () {
+                           Navigator.push(context, MaterialPageRoute(builder: (context)=>Mech_bottm()));
+                          }, child: Text("Submit"),
 
                             style: ElevatedButton.styleFrom(shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)) ,backgroundColor: Colors.blue),),
                           SizedBox(

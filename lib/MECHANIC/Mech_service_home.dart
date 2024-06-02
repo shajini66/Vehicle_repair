@@ -4,6 +4,8 @@ import 'package:vehicle_repair/MECHANIC/Mech_Edit_profile.dart';
 import 'package:vehicle_repair/MECHANIC/Mech_Notification.dart';
 import 'package:vehicle_repair/MECHANIC/tab_mech.dart';
 
+import '../landing_page.dart';
+import 'Mech_Profile.dart';
 import 'Mech_request_home.dart';
 
 class Mech_serviceH extends StatefulWidget {
@@ -30,18 +32,20 @@ class _Mech_serviceHState extends State<Mech_serviceH> {
                   height: 150,
                   width: 20,
                 ),
-                ClipOval(
-                  child: Image.asset(
-                    "assets/Ellipse 9.png",
-                    height: 70,
-                    width: 70,
-                    fit: BoxFit.fitWidth,
+                InkWell(onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Mech_profiles()));},
+                  child: ClipOval(
+                    child: Image.asset(
+                      "assets/Ellipse 9.png",
+                      height: 70,
+                      width: 70,
+                      fit: BoxFit.fitWidth,
+                    ),
                   ),
                 ),
                 SizedBox(width: MediaQuery.of(context).size.width*.5,),
                 InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Mech_notific()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>LandingPage()));
                     },
                     child: Container(
                       height: 40,
@@ -52,7 +56,12 @@ class _Mech_serviceHState extends State<Mech_serviceH> {
                       child: Center(child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.notifications,color: Colors.white,)
+                          Row(
+                            children: [
+                              Text("Logout",style: TextStyle(color: Colors.white,fontSize: 15),),
+                              Icon(Icons.logout,size: 15,color: Colors.white,)
+                            ],
+                          )
                         ],
                       )),
                     ))

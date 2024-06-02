@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'Mech_bottom.dart';
+import 'Mech_request_home.dart';
+
 class Mech_serviceAR extends StatefulWidget {
   const Mech_serviceAR({super.key});
 
@@ -60,7 +63,9 @@ class _Mech_serviceARState extends State<Mech_serviceAR> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Mech_bottm()));
+                            },
                             child: Text("Accept"),
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue),

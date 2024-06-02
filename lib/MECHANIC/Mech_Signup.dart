@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import 'Mech_Login.dart';
+
 class Mech_signup extends StatefulWidget {
   const Mech_signup({super.key});
 
@@ -32,7 +34,7 @@ class _Mech_signupState extends State<Mech_signup> {
                           SizedBox(
                             height: 30,
                           ),
-                          Text('LOGIN'),
+                          Text('SIGNUP'),
                           SizedBox(
                             height: 30,
                           ),
@@ -88,7 +90,9 @@ class _Mech_signupState extends State<Mech_signup> {
                       Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          ElevatedButton(onPressed: () {}, child: Text('LOGIN',style: TextStyle(color: Colors.white),),
+                          ElevatedButton(onPressed: () {
+                           Navigator.push(context, MaterialPageRoute(builder: (context)=>Mech_login()));
+                          }, child: Text('SIGNUP',style: TextStyle(color: Colors.white),),
 
                             style: ElevatedButton.styleFrom(shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)) ,backgroundColor: Colors.blue),),
 
