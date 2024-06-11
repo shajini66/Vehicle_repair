@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../ADMIN/Admin_User.dart';
 import '../MECHANIC/Mech_ServiceAR.dart';
+import 'User_Mecdeatails.dart';
 
 class Tabusers extends StatefulWidget {
   const Tabusers({super.key});
@@ -21,15 +22,15 @@ class _TabusersState extends State<Tabusers> {
           itemBuilder: (context, index) {
             return Card(
                 child: ListTile(
-                  subtitle:Row(
-
-                    crossAxisAlignment: CrossAxisAlignment.start,
+              subtitle: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Column(
                     children: [
                       Text(
                         'Name',
                         style: TextStyle(color: Colors.black),
                       ),
-
                       Text(
                         ' date',
                         style: TextStyle(color: Colors.black),
@@ -42,24 +43,22 @@ class _TabusersState extends State<Tabusers> {
                         ' Fuel leaking',
                         style: TextStyle(color: Colors.black),
                       ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Padding(
-
-                              padding: const EdgeInsets.only(top: 30),
-                              child: ElevatedButton(
-                                  onPressed: () {}, child: Text("Approved"))),
-                        ],
-                      ),
                     ],
                   ),
-                ));
+                  Column(
+                    children: [
+                      ElevatedButton(
+                          onPressed: () {},
+                          child: Text(
+                            "Approved",
+                            style: TextStyle(color: Colors.blue),
+                          )),
+                    ],
+                  )
+                ],
+              ),
+            ));
           },
         ));
-
-
   }
-
 }
-

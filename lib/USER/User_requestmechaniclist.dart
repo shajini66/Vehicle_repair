@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:vehicle_repair/ADMIN/tab_user.dart';
 import 'package:vehicle_repair/USER/User_Mechlist.dart';
 import 'package:vehicle_repair/USER/User_Notification.dart';
+import 'package:vehicle_repair/USER/User_Profile.dart';
 
 import 'User_requestmechlist.dart';
 
@@ -26,12 +27,14 @@ class _User_requestmeclistState extends State<User_requestmeclist> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                ClipOval(
-                  child: Image.asset(
-                    "assets/Ellipse2.jpg",
-                    height: 70,
-                    width: 70,
-                    fit: BoxFit.fitWidth,
+                InkWell(onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>User_profile()));},
+                  child: ClipOval(
+                    child: Image.asset(
+                      "assets/Ellipse2.jpg",
+                      height: 70,
+                      width: 70,
+                      fit: BoxFit.fitWidth,
+                    ),
                   ),
                 ),
                 SizedBox(

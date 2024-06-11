@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vehicle_repair/ADMIN/Admin_Notification.dart';
 
 class Admin_Addnotifi extends StatefulWidget {
   const Admin_Addnotifi({super.key});
@@ -41,7 +42,10 @@ class _Admin_AddnotifiState extends State<Admin_Addnotifi> {
                       height: 30,
                       width: 12,
                     ),
-                    Text('Enter matter'),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 190),
+                      child: Text('Enter matter'),
+                    ),
                     Row(mainAxisAlignment: MainAxisAlignment.start,
                       children: [
 
@@ -49,24 +53,28 @@ class _Admin_AddnotifiState extends State<Admin_Addnotifi> {
                     ),
                     TextField(
                       decoration: InputDecoration(
-                          border: OutlineInputBorder(), labelText: ""),
+                          border: OutlineInputBorder(), hintText: "Matter"),
                     ),
                     SizedBox(
                       width: 40,
                       height: 30,
                     ),
-                    Text('Enter content'),
-                    TextField(
+                    Padding(
+                      padding: const EdgeInsets.only(right: 190),
+                      child: Text('Enter content'),
+                    ),
+                    TextFormField(
                       decoration: InputDecoration(
 
-                          border: OutlineInputBorder(), ),
+                          border: OutlineInputBorder(),hintText:"content"),
                       maxLines: 10,
                     ),
                     SizedBox(
                       height:50,
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Admin_notific()));},
 
 
                       child: Text('Submit',style: TextStyle(color: Colors.white),),

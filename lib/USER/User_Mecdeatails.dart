@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'User_requestmechlist.dart';
+
 class User_needservice extends StatefulWidget {
   const User_needservice({super.key});
 
@@ -56,7 +58,23 @@ height: 15,              ),
                         padding: const EdgeInsets.only(left: 10),
                         child: Text("Add Needed service"),
                       ),
-                      
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          ElevatedButton(onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>Tabusers()));
+                          }, child: Text('Request',style: TextStyle(color: Colors.white),),
+
+                            style: ElevatedButton.styleFrom(shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)) ,backgroundColor: Colors.blue),),
+
+                          SizedBox(
+                            height: 10,
+                            width: 30,
+                          ),
+
+                        ],
+
+                      ),
                     ],
                   ),
                 ],

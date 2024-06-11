@@ -62,7 +62,7 @@ class _Mech_statusState extends State<Mech_status> {
                           ])
                     ])),
             SizedBox(
-             height: 100,
+              height: 100,
             ),
             Padding(
               padding: const EdgeInsets.all(15.0),
@@ -71,17 +71,18 @@ class _Mech_statusState extends State<Mech_status> {
                 decoration: InputDecoration(
                     border: OutlineInputBorder(), labelText: " Amount"),
               ),
-            ),SizedBox(
+            ),
+            SizedBox(
               height: 50,
               width: 30,
             ),
-        
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Mech_bottm()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Mech_bottm()));
                   },
                   child: Text(
                     'Submit',
@@ -92,7 +93,6 @@ class _Mech_statusState extends State<Mech_status> {
                           borderRadius: BorderRadius.circular(10)),
                       backgroundColor: Colors.blue),
                 ),
-        
               ],
             )
           ],

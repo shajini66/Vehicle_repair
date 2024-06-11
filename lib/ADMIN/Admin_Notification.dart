@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'Admin_add_notification.dart';
+
 class Admin_notific extends StatefulWidget {
   const Admin_notific({super.key});
 
@@ -15,6 +17,8 @@ class _Admin_notificState extends State<Admin_notific> {
       appBar: AppBar(),
 
     backgroundColor: Colors.blue.shade100,
+    floatingActionButton: FloatingActionButton(onPressed: (){Navigator.push(context,
+        MaterialPageRoute(builder: (context) => Admin_Addnotifi()));},child: Icon(Icons.add),),
 
     body:   ListView.builder(
         itemBuilder: (context, index) {

@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'User_Mecdeatails.dart';
+
 class Mech_userlist extends StatefulWidget {
   const Mech_userlist({super.key});
 
@@ -48,7 +50,9 @@ class _Mech_userlistState extends State<Mech_userlist> {
                           ' Battery check',
                           style: TextStyle(color: Colors.black),
                         ),
-                        ElevatedButton(onPressed: () {}, child: Text("Available")),
+                        ElevatedButton(onPressed: () {
+  Navigator.push(context, MaterialPageRoute(builder: (context)=>User_needservice()));
+                        }, child: Text("Available")),
                       ],
                     ),
                   ],

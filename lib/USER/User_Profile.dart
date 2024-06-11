@@ -1,5 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:vehicle_repair/USER/user%20profile%20edit.dart';
+
+import '../landing_page.dart';
 
 class User_profile extends StatefulWidget {
   const User_profile({super.key});
@@ -9,72 +14,121 @@ class User_profile extends StatefulWidget {
 }
 
 class _User_profileState extends State<User_profile> {
+  var ID;
+
+  void initState() {
+    super.initState();
+    getData();
+  }
+
+  Future<void> getData() async {
+    SharedPreferences spref = await SharedPreferences.getInstance();
+    setState(() {
+      ID = spref.getString('id');
+    });
+    print('Shared Prefernce data get');
+  }
+  DocumentSnapshot? user;
+
+  getFirebase() async {
+    user = await FirebaseFirestore.instance
+        .collection("user Register")
+        .doc(ID)
+        .get();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
+    return FutureBuilder(
+      future: getFirebase(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Center(child: CircularProgressIndicator());
+        }
+        if (snapshot.hasError) {
+          return Text("Error${snapshot.error}");
+        }
+        return Stack(
+          children: [
+            Scaffold(
+                appBar: AppBar(
 
 
 
-        ),
+                ),
 
-        backgroundColor: Colors.blue.shade100,
-        body:
+                backgroundColor: Colors.blue.shade100,
+                body:
 
-        Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        height: 200,
-                        width: 20,
-                      ),
+                SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 30),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            IconButton(onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>UserProfileEdit()));
+                            }, icon: Icon(Icons.edit))
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
 
-                      ClipOval(
 
-                        child: Image.asset("assets/Ellipse2.jpg",height: 70,width: 70,fit: BoxFit.cover,),
-                      ),
-                      
-                      Text("Name"),Align(alignment: Alignment.bottomCenter,)
-                    ],
+
+
+                            ClipOval(
+
+                              child: Image.asset("assets/Ellipse2.jpg",height: 70,width: 70,fit: BoxFit.cover,),
+                            ),
+
+
+                          ],
+                        ),
+                        SizedBox(height: 30,),
+                        Text(user!["User Name"]),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Text(user!["Phone Number"]),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Text(user!["Email"]),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 35,top: 260),
+                          child: ElevatedButton(
+                            onPressed: () {
+Navigator.push(context, MaterialPageRoute(builder: (context)=>LandingPage()));
+                            },
+                            child: Text("Logout"),
+                            style: ElevatedButton.styleFrom( minimumSize: Size(300, 50),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                backgroundColor: Colors.red.shade900,foregroundColor: Colors.white),
+                          ),
+                        ),
+                      ],
+
+                    ),
                   ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(), labelText: "User Name"),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(), labelText: "Phone Number"),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(), labelText: "Email"),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  ElevatedButton(onPressed: () {}, child: Text("Done"),
+                )),
+            Positioned(
+                top: 175,left: 230,
 
-                    style: ElevatedButton.styleFrom(shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)) ,backgroundColor: Colors.blue),),
-                  SizedBox(
-                    height: 15,
-                    width: 30,
-                  ),
+                child: IconButton(onPressed: (){}, icon: Icon(CupertinoIcons.camera)))
+          ],
 
-                ],
-
-              ),
-            )));
+        );
+      },
+    );
 
   }
 }
