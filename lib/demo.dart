@@ -1,19 +1,28 @@
-
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Mech_service extends StatefulWidget {
-  const Mech_service({super.key});
+class Mech_serviceee extends StatefulWidget {
+  const Mech_serviceee({super.key});
 
   @override
-  State<Mech_service> createState() => _Mech_serviceState();
+  State<Mech_serviceee> createState() => _Mech_serviceeeState();
 }
 
-class _Mech_serviceState extends State<Mech_service> {
+class _Mech_serviceeeState extends State<Mech_serviceee> {
   final TextEditingController _serviceController = TextEditingController();
+  final List<String> _services = [];
+
+  void _addService(String service) {
+    setState(() {
+      _services.add(service);
+    });
+  }
+
+  void _removeService(int index) {
+    setState(() {
+      _services.removeAt(index);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +34,7 @@ class _Mech_serviceState extends State<Mech_service> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
-              Text(
-                "Service",
-              ),
+              Text("Service"),
             ],
           ),
         ),
@@ -36,40 +43,28 @@ class _Mech_serviceState extends State<Mech_service> {
         width: double.infinity,
         height: double.infinity,
         child: ListView.builder(
-          itemCount: 3,
-itemBuilder: (context, index) {
-
-  return SingleChildScrollView(
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-
-
-        SizedBox(
-          height: 20,
-        ),
-        ListTile(
-          title: Text('Type picture service'),
-          trailing: IconButton(
-              onPressed: () {},
-              icon: Icon(CupertinoIcons.delete)),
-        ),
-        Divider(
-          color: Colors.black,
-          thickness: 1,
-        ),
-        SizedBox(
-          height: 10,
-        ),
-      ],
-    ),
-  );
-},
+          itemCount: _services.length,
+          itemBuilder: (context, index) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height: 20),
+                ListTile(
+                  title: Text(_services[index]),
+                  trailing: IconButton(
+                    onPressed: () => _removeService(index),
+                    icon: Icon(CupertinoIcons.delete),
+                  ),
+                ),
+                Divider(color: Colors.black, thickness: 1),
+                SizedBox(height: 10),
+              ],
+            );
+          },
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Show alert dialog with text form field
           showDialog(
             context: context,
             builder: (BuildContext context) {
@@ -90,9 +85,10 @@ itemBuilder: (context, index) {
                   ),
                   TextButton(
                     onPressed: () {
-                      // Handle saving the new service (logic not provided)
-                      String newService = _serviceController.text;
-                      // Add new service to the list (implementation omitted)
+                      if (_serviceController.text.isNotEmpty) {
+                        _addService(_serviceController.text);
+                        _serviceController.clear();
+                      }
                       Navigator.of(context).pop();
                     },
                     child: Text('Add'),

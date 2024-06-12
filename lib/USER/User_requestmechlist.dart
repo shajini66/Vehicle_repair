@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -17,47 +18,62 @@ class _TabusersState extends State<Tabusers> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.blue.shade100,
-        body: ListView.builder(
-          itemCount: 2,
-          itemBuilder: (context, index) {
-            return Card(
-                child: ListTile(
-              subtitle: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Column(
-                    children: [
-                      Text(
-                        'Name',
-                        style: TextStyle(color: Colors.black),
+        body: FutureBuilder(
+          future: FirebaseFirestore.instance.collection("userRequest").get(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(child: CircularProgressIndicator());
+            }
+            if (snapshot.hasError) {
+              return Text("Error${snapshot.error}");
+            }
+            final request=snapshot.data?.docs ?? [];
+            return ListView.builder(
+              itemCount: request.length,
+              itemBuilder: (context, index) {
+                return Card(
+                    child: ListTile(
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+
+                              Text(
+                                'Name',
+                                style: TextStyle(color: Colors.black),
+                              ),
+                              Text(
+                                request[index]["date"],
+                                style: TextStyle(color: Colors.black),
+                              ),
+                              Text(
+                                request[index]["Time"],
+                                style: TextStyle(color: Colors.black),
+                              ),
+                              Text(
+                                request[index]["service"],
+                                style: TextStyle(color: Colors.black),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              ElevatedButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    "Approved",
+                                    style: TextStyle(color: Colors.blue),
+                                  )),
+                            ],
+                          )
+                        ],
                       ),
-                      Text(
-                        ' date',
-                        style: TextStyle(color: Colors.black),
-                      ),
-                      Text(
-                        ' Time',
-                        style: TextStyle(color: Colors.black),
-                      ),
-                      Text(
-                        ' Fuel leaking',
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      ElevatedButton(
-                          onPressed: () {},
-                          child: Text(
-                            "Approved",
-                            style: TextStyle(color: Colors.blue),
-                          )),
-                    ],
-                  )
-                ],
-              ),
-            ));
+                    ));
+              },
+            );
+
           },
         ));
   }

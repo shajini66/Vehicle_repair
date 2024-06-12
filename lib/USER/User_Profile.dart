@@ -1,8 +1,13 @@
+import 'dart:html';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vehicle_repair/USER/user%20profile%20edit.dart';
+import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
+
 
 import '../landing_page.dart';
 
@@ -14,6 +19,7 @@ class User_profile extends StatefulWidget {
 }
 
 class _User_profileState extends State<User_profile> {
+
   var ID;
 
   void initState() {
@@ -28,6 +34,7 @@ class _User_profileState extends State<User_profile> {
     });
     print('Shared Prefernce data get');
   }
+
   DocumentSnapshot? user;
 
   getFirebase() async {
@@ -54,7 +61,6 @@ class _User_profileState extends State<User_profile> {
                 appBar: AppBar(
 
 
-
                 ),
 
                 backgroundColor: Colors.blue.shade100,
@@ -69,8 +75,9 @@ class _User_profileState extends State<User_profile> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            IconButton(onPressed: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>UserProfileEdit()));
+                            IconButton(onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) => UserProfileEdit()));
                             }, icon: Icon(Icons.edit))
                           ],
                         ),
@@ -78,12 +85,11 @@ class _User_profileState extends State<User_profile> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
 
-
-
-
                             ClipOval(
 
-                              child: Image.asset("assets/Ellipse2.jpg",height: 70,width: 70,fit: BoxFit.cover,),
+                              child: Image.network(user!["path"], height: 70,
+                                width: 70,
+                                fit: BoxFit.cover,),
                             ),
 
 
@@ -103,16 +109,19 @@ class _User_profileState extends State<User_profile> {
                           height: 30,
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 35,top: 260),
+                          padding: const EdgeInsets.only(left: 35, top: 260),
                           child: ElevatedButton(
                             onPressed: () {
-Navigator.push(context, MaterialPageRoute(builder: (context)=>LandingPage()));
+                              Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) => LandingPage()));
                             },
                             child: Text("Logout"),
-                            style: ElevatedButton.styleFrom( minimumSize: Size(300, 50),
+                            style: ElevatedButton.styleFrom(
+                                minimumSize: Size(300, 50),
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)),
-                                backgroundColor: Colors.red.shade900,foregroundColor: Colors.white),
+                                backgroundColor: Colors.red.shade900,
+                                foregroundColor: Colors.white),
                           ),
                         ),
                       ],
@@ -121,15 +130,15 @@ Navigator.push(context, MaterialPageRoute(builder: (context)=>LandingPage()));
                   ),
                 )),
             Positioned(
-                top: 175,left: 230,
+                top: 175, left: 230,
 
-                child: IconButton(onPressed: (){}, icon: Icon(CupertinoIcons.camera)))
+                child: IconButton(
+                    onPressed: () {}, icon: Icon(CupertinoIcons.camera)))
           ],
 
         );
       },
     );
-
   }
 }
 

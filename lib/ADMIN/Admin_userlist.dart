@@ -29,9 +29,9 @@ final user=snapshot.data?.docs ?? [];
             itemBuilder: (context, index) {
               return Card(
                 child: ListTile(
-                  onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Admin_user(id:user[index].id)));
-                  },
+                  // onTap: () {
+                  //   Navigator.push(context, MaterialPageRoute(builder: (context)=>Admin_user(id:user[index].id)));
+                  // },
                   leading: CircleAvatar(
                     child: Image.asset("assets/Rectangle 13.png"),
                     radius: 30,
@@ -58,6 +58,9 @@ final user=snapshot.data?.docs ?? [];
                       ),
                     ],
                   ),
+                  trailing: IconButton(onPressed: (){setState(() {
+                    FirebaseFirestore.instance.collection("user Register").doc(user[index].id).delete();
+                  });}, icon: Icon(Icons.delete)),
                 ),
               );
             },
