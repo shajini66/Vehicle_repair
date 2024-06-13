@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:vehicle_repair/MECHANIC/Mech_Rating.dart';
 import 'package:vehicle_repair/MECHANIC/Mech_Service.dart';
-import 'package:vehicle_repair/MECHANIC/Mech_request_home.dart';
-import 'package:vehicle_repair/MECHANIC/Mech_service_home.dart';
-import 'package:vehicle_repair/MECHANIC/tab_mech.dart';
+import 'package:vehicle_repair/MECHANIC/Mech_RequestAccepted.dart';
+import 'package:vehicle_repair/MECHANIC/Mech_TabBar.dart';
+import 'package:vehicle_repair/MECHANIC/Mech_userrequestAccepRej.dart';
 
 import 'Mech_Notification.dart';
 

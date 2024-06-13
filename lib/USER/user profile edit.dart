@@ -34,7 +34,7 @@ class _UserProfileEditState extends State<UserProfileEdit> {
     await FirebaseFirestore.instance.collection("user Register").doc(ID).update({
 
       "Email": email.text,
-      "phone":phone.text,
+      "Phone Number":phone.text,
 
 
     });

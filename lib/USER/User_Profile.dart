@@ -1,4 +1,5 @@
-import 'dart:html';
+// import 'dart:html';
+// import 'dart:html';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
@@ -87,7 +88,7 @@ class _User_profileState extends State<User_profile> {
 
                             ClipOval(
 
-                              child: Image.network(user!["path"], height: 70,
+                              child: Image.asset("assets/Ellipse 1.png", height: 70,
                                 width: 70,
                                 fit: BoxFit.cover,),
                             ),
@@ -130,7 +131,7 @@ class _User_profileState extends State<User_profile> {
                   ),
                 )),
             Positioned(
-                top: 175, left: 230,
+                top: 145, left: 230,
 
                 child: IconButton(
                     onPressed: () {}, icon: Icon(CupertinoIcons.camera)))

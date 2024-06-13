@@ -68,8 +68,8 @@ class _Mech_requestHState extends State<Mech_requestH> {
                                 padding: const EdgeInsets.only(top: 30),
                                 child: ElevatedButton(
                                     onPressed: () {
-                                      // Navigator.push(context, MaterialPageRoute(builder: (context)=>Mech_status()));
-                                    }, child: Text("Accepted"))),
+                                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Mech_status()));
+                                    }, child: Text("Payment Pending"))),
                           ],
                         ),
                       ],

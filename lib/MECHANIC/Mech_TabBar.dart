@@ -1,20 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:vehicle_repair/ADMIN/Admin_userlist.dart';
-import 'package:vehicle_repair/USER/User_Mechlist.dart';
-import 'package:vehicle_repair/USER/User_Notification.dart';
-import 'package:vehicle_repair/USER/User_Profile.dart';
+import 'package:vehicle_repair/MECHANIC/Mech_Edit_profile.dart';
+import 'package:vehicle_repair/MECHANIC/Mech_Notification.dart';
+import 'package:vehicle_repair/MECHANIC/Mech_userrequestAccepRej.dart';
 
-import 'User_requestmechlist.dart';
+import '../landing_page.dart';
+import 'Mech_Profile.dart';
+import 'Mech_RequestAccepted.dart';
 
-class User_requestmeclist extends StatefulWidget {
-  const User_requestmeclist({super.key});
+class Mech_serviceH extends StatefulWidget {
+  const Mech_serviceH({super.key});
 
   @override
-  State<User_requestmeclist> createState() => _User_requestmeclistState();
+  State<Mech_serviceH> createState() => _Mech_serviceHState();
 }
 
-class _User_requestmeclistState extends State<User_requestmeclist> {
+class _Mech_serviceHState extends State<Mech_serviceH> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -27,25 +28,24 @@ class _User_requestmeclistState extends State<User_requestmeclist> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                InkWell(onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>User_profile()));},
+                SizedBox(
+                  height: 150,
+                  width: 20,
+                ),
+                InkWell(onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Mech_profiles()));},
                   child: ClipOval(
                     child: Image.asset(
-                      "assets/Ellipse2.jpg",
+                      "assets/Ellipse 9.png",
                       height: 70,
                       width: 70,
                       fit: BoxFit.fitWidth,
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 150,
-                  width: 20,
-                ),
-
                 SizedBox(width: MediaQuery.of(context).size.width*.5,),
                 InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>User_notification()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>LandingPage()));
                     },
                     child: Container(
                       height: 40,
@@ -56,7 +56,12 @@ class _User_requestmeclistState extends State<User_requestmeclist> {
                       child: Center(child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.notifications,color: Colors.white,)
+                          Row(
+                            children: [
+                              Text("Logout",style: TextStyle(color: Colors.white,fontSize: 15),),
+                              Icon(Icons.logout,size: 15,color: Colors.white,)
+                            ],
+                          )
                         ],
                       )),
                     ))
@@ -77,12 +82,12 @@ class _User_requestmeclistState extends State<User_requestmeclist> {
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   labelColor: Color.fromARGB(255, 255, 255, 255),
                   unselectedLabelColor: Color.fromARGB(255, 0, 150, 178),
-                  tabs: [Text('Mechanic'), Text('Request')]),
+                  tabs: [Text('Requestes'), Text('Accepted')]),
             ),
             Expanded(
               child: TabBarView(children: [
-                Mech_userlist(),
-                Tabusers(),
+                Mech_tab(),
+                Mech_requestH(),
               ]),
             )
           ],
@@ -91,3 +96,4 @@ class _User_requestmeclistState extends State<User_requestmeclist> {
     );
   }
 }
+

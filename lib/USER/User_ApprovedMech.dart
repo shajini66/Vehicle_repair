@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../ADMIN/Admin_User.dart';
 import '../MECHANIC/Mech_ServiceAR.dart';
-import 'User_Mecdeatails.dart';
+import 'User_Neededservice.dart';
 
 class Tabusers extends StatefulWidget {
   const Tabusers({super.key});
@@ -19,7 +19,7 @@ class _TabusersState extends State<Tabusers> {
     return Scaffold(
         backgroundColor: Colors.blue.shade100,
         body: FutureBuilder(
-          future: FirebaseFirestore.instance.collection("userRequest").get(),
+          future: FirebaseFirestore.instance.collection("userRequest").where("status",isEqualTo: 1).get(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(child: CircularProgressIndicator());
@@ -41,7 +41,7 @@ class _TabusersState extends State<Tabusers> {
                             children: [
 
                               Text(
-                                'Name',
+                                request[index]["Mechname"],
                                 style: TextStyle(color: Colors.black),
                               ),
                               Text(

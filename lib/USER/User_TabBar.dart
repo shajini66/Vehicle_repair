@@ -1,21 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:vehicle_repair/MECHANIC/Mech_Edit_profile.dart';
-import 'package:vehicle_repair/MECHANIC/Mech_Notification.dart';
-import 'package:vehicle_repair/MECHANIC/tab_mech.dart';
+import 'package:vehicle_repair/ADMIN/Admin_userlist.dart';
+import 'package:vehicle_repair/USER/User_Mechlist.dart';
+import 'package:vehicle_repair/USER/User_Notification.dart';
+import 'package:vehicle_repair/USER/User_Profile.dart';
 
-import '../landing_page.dart';
-import 'Mech_Profile.dart';
-import 'Mech_request_home.dart';
+import 'User_ApprovedMech.dart';
 
-class Mech_serviceH extends StatefulWidget {
-  const Mech_serviceH({super.key});
+class User_requestmeclist extends StatefulWidget {
+  const User_requestmeclist({super.key});
 
   @override
-  State<Mech_serviceH> createState() => _Mech_serviceHState();
+  State<User_requestmeclist> createState() => _User_requestmeclistState();
 }
 
-class _Mech_serviceHState extends State<Mech_serviceH> {
+class _User_requestmeclistState extends State<User_requestmeclist> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -28,24 +27,25 @@ class _Mech_serviceHState extends State<Mech_serviceH> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: 150,
-                  width: 20,
-                ),
-                InkWell(onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Mech_profiles()));},
+                InkWell(onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>User_profile()));},
                   child: ClipOval(
                     child: Image.asset(
-                      "assets/Ellipse 9.png",
+                      "assets/Ellipse2.jpg",
                       height: 70,
                       width: 70,
                       fit: BoxFit.fitWidth,
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: 150,
+                  width: 20,
+                ),
+
                 SizedBox(width: MediaQuery.of(context).size.width*.5,),
                 InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>LandingPage()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>User_notification()));
                     },
                     child: Container(
                       height: 40,
@@ -56,12 +56,7 @@ class _Mech_serviceHState extends State<Mech_serviceH> {
                       child: Center(child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Row(
-                            children: [
-                              Text("Logout",style: TextStyle(color: Colors.white,fontSize: 15),),
-                              Icon(Icons.logout,size: 15,color: Colors.white,)
-                            ],
-                          )
+                          Icon(Icons.notifications,color: Colors.white,)
                         ],
                       )),
                     ))
@@ -82,12 +77,12 @@ class _Mech_serviceHState extends State<Mech_serviceH> {
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   labelColor: Color.fromARGB(255, 255, 255, 255),
                   unselectedLabelColor: Color.fromARGB(255, 0, 150, 178),
-                  tabs: [Text('Requestes'), Text('Accepted')]),
+                  tabs: [Text('Mechanic'), Text('Request')]),
             ),
             Expanded(
               child: TabBarView(children: [
-                Mech_tab(),
-                Mech_requestH(),
+                Mech_userlist(),
+                Tabusers(),
               ]),
             )
           ],
@@ -96,4 +91,3 @@ class _Mech_serviceHState extends State<Mech_serviceH> {
     );
   }
 }
-
